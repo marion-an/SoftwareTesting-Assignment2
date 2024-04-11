@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="CourseSchedule" />
         <module name="ClimbingStairs" />
+        <module name="SortedArray2BST-old" />
         <module name="UniquePathsGrid" />
         <module name="SumofTwoIntegers" />
         <module name="MergeKSortedLists" />
