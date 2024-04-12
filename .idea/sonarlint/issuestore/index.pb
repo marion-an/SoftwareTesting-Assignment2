@@ -49,3 +49,9 @@ G.idea/sonarlint/issuestore/d/0/d035b9f9ab38558ecd8e3f6d00b23b76f1f79490,d\c\dc
 Q.idea/sonarlint/securityhotspotstore/c/6/c6262b1fda4e01a1034bc0a3bce9f38075b28720,e\e\ee0d73c9ad80be019eee67cfe7622d76bd02c97c
 w
 G.idea/sonarlint/issuestore/c/6/c6262b1fda4e01a1034bc0a3bce9f38075b28720,a\f\af84d695753fb8cf6f54f4ba26f7721c77ba1f49
+g
+7FindDuplicate/src/test/java/zest/FindDuplicateTest.java,2\f\2f2ca5e96d39df522bb6c3c2e4928b907f446c11
+c
+3FindDuplicate/src/main/java/zest/FindDuplicate.java,3\f\3f47dd7b190ad84126327b448728a4f7f3d86555
+]
+-LongestIncreasingSubsequence/Documentation.md,a\0\a07c6b4928ddd8064c532629c5955a0e66bba002
