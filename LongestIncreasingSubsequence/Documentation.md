@@ -64,9 +64,15 @@ see: [LongestIncreasingSubsequence.java](LongestIncreasingSubsequence/src/test/j
 
 ### Pre-conditions
 
+- `nums` is not null
+
 ### Post-conditions
 
+- integer to be returned is non-negative (>=0)
+
 ### Invariants
+
+- `nums` length doesn't change
 
 ## Testing contracts
 
