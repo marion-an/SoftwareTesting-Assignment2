@@ -7,13 +7,13 @@ testing is done prior to structural testing. Therefore, we have decided to speci
 
 ### 1. Understand the requirement, inputs, and outputs
 
-Method: `findDuplicate(int[] nums)`
+Method: `lengthOfLIS(int[] nums)`
 
-find the duplicate number in an array
+find the longest strictly increasing subsequence
 
 - `nums`: integer array
 
-return duplicate number
+return length of the longest strictly increasing subsequence
 
 ### 2. Explore the program
 
@@ -23,8 +23,7 @@ We wrote some tests to see how the program behaves
 
 Input parameters:
 
-- `nums` parameter: the integers in `nums` have to be in the range [1, `nums.length-1`]
-    - integer array of length >= 2
+- `nums` parameter: integer array can contain any integer (negative and positive)
 
 - no combination of input parameters possible, as only 1 input parameter exists
 
@@ -34,15 +33,16 @@ Output parameters:
 
 ### 4. Analyze the boundaries
 
-- `nums` having length 2
-- `nums` contains `n` different integer with length `n + 1`
+- `nums` having length 1
+- `nums` contains no duplicates
 
 ### 5. Devise test cases
 
-- T1: `nums` has length 2
-- T2: `nums` has length > 2
-- T3: `nums` contains `n` different integer with length `n + 1`
-- T4: `nums` contains less than `n` different integer with length `n + 1`
+- T1: `nums` has length 0
+- T2: `nums` has length 1
+- T3: `nums` has length > 1
+- T4: `nums` contains no duplicates
+- T5: `nums` contains duplicates
 
 ### 6. Automate the test cases
 
@@ -50,13 +50,15 @@ see: [LongestIncreasingSubsequence.java](LongestIncreasingSubsequence/src/test/j
 
 ### 7. Augment the test suite with creativity and experience
 
-- T5: the integers in `nums` are in ascending order
-- T6: the integers in `nums` are in descending order
-- T7: duplicates in `nums` are right after each other
+- T6: `nums` contains only negative numbers
+- T7: `nums` contains only positive numbers
+- T8: `nums` is in increasing order
+- T9: `nums` is in decreasing order
+- T10: `nums` contains only a single value
 
 ## Structural testing
 
-- line coverage: 100% (92% overall, because the method is static. The class is never instantiated)
+- line coverage: 100%
 
 ## Designing contracts
 
