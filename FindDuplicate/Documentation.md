@@ -74,3 +74,28 @@ see: [FindDuplicateTest.java](FindDuplicate/src/main/java/zest/FindDuplicate.jav
 
 - the integers in `nums` have to be in the range [1, `nums.length-1`]
 - `nums` length doesn't change
+
+## Testing contracts
+
+### Pre-conditions
+
+- `nums` should not be null
+    - T8:
+    - T9:
+- `nums` has to contain at least 2 elements
+    - T10:
+    - T11:
+
+### Post-conditions
+
+- integer to be returned is present in `nums`
+- integer to be returned is the duplicate number
+
+### Invariants
+
+- the integers in `nums` have to be in the range [1, `nums.length-1`]
+- `nums` length doesn't change
+
+## Property-based testing
+
+
