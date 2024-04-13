@@ -123,7 +123,7 @@ class FindDuplicateTest {
 
     // Tests for property-based testing
     @Property
-    //@Report(Reporting.GENERATED)
+    @Report(Reporting.GENERATED)
     void duplicateNumber(
             @ForAll
             @Size(50)
