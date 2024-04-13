@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CourseSchedule" />
+        <module name="longestIncreasingSubsequence-test" />
         <module name="ClimbingStairs" />
         <module name="SortedArray2BST-old" />
         <module name="UniquePathsGrid" />
