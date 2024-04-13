@@ -77,3 +77,7 @@ w
 G.idea/sonarlint/issuestore/c/4/c4a352fe12ba508095ad339bcca35d6e1f647de3,7\0\702d26884c827834dc5a1c09d3b1b56e5ce8b2e8
 Å
 Q.idea/sonarlint/securityhotspotstore/2/f/2f2ca5e96d39df522bb6c3c2e4928b907f446c11,b\9\b914dea2f87f9a44f352449978fbcdd848f2f0c4
+[
++LongestIncreasingSubsequence/Assets/log.txt,6\0\607cccec3c04205794ef822d112f7fe2cf2b101f
+@
+Documentation.md,6\3\63eace3df5f52a7525be7047feb994622354890f
