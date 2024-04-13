@@ -1,0 +1,25 @@
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running zest.FindDuplicateTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s -- in zest.FindDuplicateTest
+[INFO] Running zest.FindDuplicateTest
+timestamp = 2024-04-13T22:29:05.749380, FindDuplicateTest:duplicateNumber =
+                              |--------------------jqwik--------------------
+tries = 1000                  | # of calls to property
+checks = 1000                 | # of not rejected calls
+generation = RANDOMIZED       | parameters are randomly generated
+after-failure = PREVIOUS_SEED | use the previous seed
+when-fixed-seed = ALLOW       | fixing the random seed is allowed
+edge-cases#mode = MIXIN       | edge cases are mixed in
+edge-cases#total = 0          | # of all combined edge cases
+edge-cases#tried = 0          | # of edge cases tried in current run
+seed = 7274298253635376333    | random seed to reproduce generated values
+
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.617 s -- in zest.FindDuplicateTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+

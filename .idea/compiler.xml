@@ -13,9 +13,14 @@
         <module name="UniquePathsGrid" />
         <module name="SumofTwoIntegers" />
         <module name="MergeKSortedLists" />
-        <module name="FindDuplicate" />
         <module name="SortedArray2BST" />
+        <module name="findDuplicate-test" />
+        <module name="LongestIncreasingSubsequence" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="FindDuplicate" target="1.7" />
+      <module name="longestIncreasingSubsequence-test" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
