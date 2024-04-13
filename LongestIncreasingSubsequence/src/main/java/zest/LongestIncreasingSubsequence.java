@@ -1,8 +1,21 @@
 package zest;
 
 public class LongestIncreasingSubsequence {
+
+    /**
+     * finds the longest strictly increasing subsequence
+     *
+     * @param nums an integer array
+     * @return the length of the longest strictly increasing subsequence
+     */
     public int lengthOfLIS(int[] nums) {
-        if (nums == null || nums.length == 0) {
+        if (nums == null) {
+            throw new RuntimeException("Input cannot be null.");
+        }
+
+        int length = nums.length;
+
+        if (nums.length == 0) {
             return 0;
         }
 
@@ -22,6 +35,13 @@ public class LongestIncreasingSubsequence {
             maxLength = Math.max(maxLength, dp[i]);
         }
 
+        if (maxLength < 0) {
+            throw new RuntimeException("Value to be returned cannot be negative");
+        }
+
+        if (length != nums.length) {
+            throw new RuntimeException("Integer array has changed");
+        }
         return maxLength;
     }
 }
