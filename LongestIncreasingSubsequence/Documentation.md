@@ -97,4 +97,19 @@ see: [LongestIncreasingSubsequence.java](LongestIncreasingSubsequence/src/test/j
 
 ## Property-based testing
 
+### 1. Property:
 
+- the value to be returned is non-negative (>=0):
+
+This property has to hold true for every input because it is not possible that the subsequence has a negative length.
+
+- T15
+
+### 2. Property:
+
+- the value to be returned is not greater than the length of `nums`
+
+This property has to hold true for every input because it is not possible that the subsequence is larger than the whole
+sequence.
+
+- T16

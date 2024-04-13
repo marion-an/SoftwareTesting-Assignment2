@@ -1,9 +1,12 @@
 package zest;
 
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
+import net.jqwik.api.Report;
+import net.jqwik.api.Reporting;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LongestIncreasingSubsequenceTest {
 
@@ -100,5 +103,17 @@ class LongestIncreasingSubsequenceTest {
         assertEquals(1, lis.lengthOfLIS(new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}));
         assertEquals(2, lis.lengthOfLIS(new int[]{1, 2, 1, 2, 1, 2}));
         assertEquals(3, lis.lengthOfLIS(new int[]{-3, -8, 3, 1, 7, 0}));
+    }
+
+    @Property
+    @Report(Reporting.GENERATED)
+    void nonNegativeReturn(@ForAll int[] nums) {
+        assertTrue(lis.lengthOfLIS(nums) >= 0);
+    }
+
+    @Property
+    @Report(Reporting.GENERATED)
+    void returnWithinRange(@ForAll int[] nums) {
+        assertTrue(lis.lengthOfLIS(nums) <= nums.length);
     }
 }
