@@ -86,7 +86,7 @@ see: [LongestIncreasingSubsequence.java](LongestIncreasingSubsequence/src/test/j
 ### Post-conditions
 
 - integer to be returned is non-negative (>=0)
-    - T13: post-condition hold
+    - T13: post-condition holds
 
 ### Invariants
 
