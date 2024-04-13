@@ -105,6 +105,7 @@ class LongestIncreasingSubsequenceTest {
         assertEquals(3, lis.lengthOfLIS(new int[]{-3, -8, 3, 1, 7, 0}));
     }
 
+    //Tests for property-based testing
     @Property
     @Report(Reporting.GENERATED)
     void nonNegativeReturn(@ForAll int[] nums) {
