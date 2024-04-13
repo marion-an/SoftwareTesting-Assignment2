@@ -1,9 +1,16 @@
 package zest;
 
 public class LongestIncreasingSubsequence {
+
+    /**
+     * finds the longest strictly increasing subsequence
+     *
+     * @param nums an integer array
+     * @return the length of the longest strictly increasing subsequence
+     */
     public int lengthOfLIS(int[] nums) {
         if (nums == null) {
-            throw new RuntimeException("Input can not be null.");
+            throw new RuntimeException("Input cannot be null.");
         }
 
         int length = nums.length;

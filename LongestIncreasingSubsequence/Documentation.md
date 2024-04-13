@@ -73,14 +73,27 @@ see: [LongestIncreasingSubsequence.java](LongestIncreasingSubsequence/src/test/j
 ### Invariants
 
 - `nums` length doesn't change
+- length of the strictly increasing subsequence is non-negative (>=0)
 
 ## Testing contracts
 
 ### Pre-conditions
 
+- `nums` is not null
+    - T11: pre-condition met
+    - T12: pre-condition not met
+
 ### Post-conditions
 
+- integer to be returned is non-negative (>=0)
+    - T13: post-condition hold
+
 ### Invariants
+
+- `nums` length doesn't change
+    - T14: invariant maintained
+- length of the strictly increasing subsequence is non-negative (>=0)
+    - covered by T13
 
 ## Property-based testing
 
