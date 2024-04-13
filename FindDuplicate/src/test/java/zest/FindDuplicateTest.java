@@ -1,8 +1,13 @@
 package zest;
 
+import net.jqwik.api.*;
+import net.jqwik.api.constraints.IntRange;
+import net.jqwik.api.constraints.Size;
+import net.jqwik.api.constraints.UniqueElements;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -117,5 +122,26 @@ class FindDuplicateTest {
     }
 
     // Tests for property-based testing
+    @Property
+    //@Report(Reporting.GENERATED)
+    void duplicateNumber(
+            @ForAll
+            @Size(50)
+            @UniqueElements
+            List<@IntRange(min = 1, max = 50) Integer> numbers,
+            @ForAll
+            @IntRange(max = 49)
+            int index,
+            @ForAll
+            @IntRange(min = 1, max = 50)
+            int duplicate
+    ) {
+
+        int end = numbers.get(index);
+        numbers.add(end);
+        numbers.set(index, duplicate);
+        int nums[] = numbers.stream().mapToInt(element -> element).toArray();
+        assertEquals(duplicate, FindDuplicate.findDuplicate(nums));
+    }
 
 }

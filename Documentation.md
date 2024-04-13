@@ -103,5 +103,8 @@ see: [FindDuplicateTest.java](FindDuplicate/src/main/java/zest/FindDuplicate.jav
     - T15: invariant maintained
 
 ## Property-based testing
-
+### 1. Property:
+- the value to be returned is the duplicate number
+This property has to hold true for every input.
+- T16
 
