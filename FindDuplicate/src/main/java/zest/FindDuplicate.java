@@ -1,9 +1,15 @@
 package zest;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class FindDuplicate {
+
+    /**
+     * finds the duplicate number in an array
+     *
+     * @param nums an integer array
+     * @return the duplicate number
+     */
     public static int findDuplicate(int[] nums) {
         if (nums == null) {
             throw new RuntimeException("Integer array cannot be null.");
@@ -15,8 +21,8 @@ public class FindDuplicate {
 
         int range = nums.length - 1;
         for (int number : nums) {
-            if (1 > number && number > range) {
-                throw new RuntimeException(String.format("%d is out of range."));
+            if (1 > number || number > range) {
+                throw new RuntimeException(String.format("%d is out of range.", number));
             }
         }
 
@@ -49,11 +55,7 @@ public class FindDuplicate {
         if (nums.length != range + 1) {
             throw new RuntimeException("Length of integer array changed.");
         }
-        for (int number : nums) {
-            if (1 > number && number > range) {
-                throw new RuntimeException(String.format("%d is out of range."));
-            }
-        }
+
         return hare;
     }
 }
