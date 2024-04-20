@@ -1,3 +1,121 @@
+# ClimbingStairs
+
+## Specification-based testing
+
+According to the book chapter 3.2 structural testing complements specification-based testing and specification-based
+testing is done prior to structural testing. Therefore, we have decided to specification-based testing as well.
+
+### 0. Notes and comments
+
+We'll add a line in the code, if the input is negative, we return an error (so the output is non-negative)
+-> if (n < 0) {return 0;}
+
+if the input is too big for integer, we return an error
+if (n > 45) {throw new RuntimeException("Integer too big.");}
+
+made climbStairs static
+-> public static long climbStairs(int n)
+
+### 1. Understand the requirement, inputs, and outputs
+
+Method: `climbStairs(int n)`
+
+how many distinct ways can you climb to the top of n stairs when you can either climb 1 or 2 steps.
+
+input:
+- `n`: positive integer
+
+output:
+we return a non-negative integer (number of distinct way to climb stairs)
+
+### 2. Explore the program
+
+We wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+
+- `n` parameter: a positive integers
+
+- no combination of input parameters possible, as only 1 input parameter exists
+
+
+Output parameters:
+
+- non-negative integer
+
+### 4. Analyze the boundaries
+
+- `n` = 0 (lower bound)
+
+
+### 5. Devise test cases
+
+- T1: `n` = 0
+- T2: `n` = 1
+- T3: `n` = 2
+- T4: `n` = 3
+- T5: `n` = 4
+- T6: `n` = 5
+- T7: `n` = -1 and `n` = 46
+
+
+### 6. Automate the test cases
+
+see: [ClimbStairsTest.java](ClimbingStairs/src/main/java/zest/ClimbingStairs.java)
+
+### 7. Augment the test suite with creativity and experience
+
+- T8: `n` = 10
+
+## Structural testing
+
+- line coverage: 100% (91% overall, because the method is static. The class is never instantiated)
+
+## Designing contracts
+
+### Pre-conditions
+
+- `n` should be a positive integer
+
+### Post-conditions
+
+- integer to be returned is non negative
+- integer to be returned is number of distinct ways to climb n stairs
+
+
+### Invariants
+
+- `allWays` is correctly updated throughout the loop to compute the distinct ways to climb n stairs.
+
+## Testing contracts
+
+### Pre-conditions
+
+- `n` should be a positive integer
+  - T9: pre-condition not met
+  - T10: pre-condition met
+
+### Post-conditions
+
+- integer to be returned is non negative
+  - T11: pre-condition met
+
+- integer to be returned is number of distinct ways to climb n stairs
+
+### Invariants
+
+- `allWays` is correctly updated throughout the loop to compute the distinct ways to climb i_th stairs.
+  - T12: invariant maintained
+
+## Property-based testing
+### 1. Property:
+
+- the output is correctly updated each floor ascendingly (we output the i_th distinct ways to climb i_th stairs)
+  This property has to hold true for every input.
+
+
 # FindDuplicate
 
 ## Specification-based testing

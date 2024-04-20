@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ClimbingStairs/ClimbStairs-test.iml" filepath="$PROJECT_DIR$/ClimbingStairs/ClimbStairs-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CourseSchedule/CourseSchedule-test.iml" filepath="$PROJECT_DIR$/CourseSchedule/CourseSchedule-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/assignment02.iml" filepath="$PROJECT_DIR$/.idea/assignment02.iml" />
     </modules>
   </component>
