@@ -344,218 +344,6 @@ sequence.
 - T16
 
 
-# SumOfTwoIntegers
-
-### 1. Understand the requirement, inputs, and outputs
-
-The class SumOfTwoIntegers contains one method called getSum which takes two integers as input and will give the result of adding the two as output.
-
-### 2. Explore the program
-
-Wrote some simple print statements and some method calls to see how to program runs
-
-### 3. Explore possible inputs and outputs, and identify partitions
-
-Input parameters:
-
-- `integer a & b`
-  - can both be positive
-  - either one can be 0
-  - one can be negative
-  - both can be negative
-  - Note: it is assumed the integers are in the 32 bit range
-
-Output parameters:
-
-- `integer c`
-  - can be positive
-  - can be 0
-  - can be negative
-  - can need less bits than `a or b`
-  - can use more bits than `a or b`
-
-### 4. Analyze the boundaries
-- `integer a & b`
-  - 0 => 1, 0, -1
-  - null => null
-
-### 5. Devise test cases
-
-- `integer a` is null
-  - `integer b` is positive (nothing specified how to handle this in readme => will not be covered)
-- `integer a` is positive
-  - T1: `integer b` is positive and has more bits than a
-  - T2: `integer b` is positive and has less bits than a
-  - T3: `integer b` is 0
-  - T4: `integer b` is negative and has more bits than a
-  - T5: `integer b` is negative and has less bits than a
-- `integer a` is 0
-  - T6: `integer b` is 0
-- `integer a` is negative
-  - T7: `integer b` is positive
-  - T8: `integer b` is negative and has more bits than a
-  - T9: `integer b` is negative and has less bits than a
-
-
-### 6. Automate the test cases
-
-have a look at [Tests](SumofTwoIntegers/src/test/java/zest/SumOfTwoIntegersTest.java)
-
-### 7. Augment the test suite with creativity and experience
-
-- T10: since the adding is done in binary we derive another test case where `integer a` is 0 and `integer b` has some negative value since the order could make a difference for the result
-
-## Structural testing
-
-- line coverage of 100%
-- branch coverage of 100%
-- mutation tests 7/7 mutants killed
-
-## Designing contracts
-
-### Pre-conditions
-
-- Inputs `a & b` are both integers and not null (since the type is int which can't be null this is already satisfied with Integer instead of int it could be done explicit)
-
-### Post-conditions
-
-- The output `c` is an integer which is not null (also int type, therefore same logic as above)
-
-### Invariants
-
-- None which are useful
-
-## Testing contracts
-
-### Pre-conditions
-
-- T11: Check that a null value raises NullPointerException
-
-### Post-conditions
-
-- T12: If no null values are provided the result gives the correct integer
-
-### Invariants
-
-- Intentionally empty
-
-## Property-based testing
-### 1. Property:
-- the return value is a positive integer if both inputs are positive
-- Note here that the tests fail and give an error if we check this since if one of the values is the highest possible integer the program will not be able to handle it, probably since the underlying system uses 32 bit integers and therefore if we add to this number it behaves not as wanted, but becomes negative. Therefore for the tests to pass a maximum of 5000 is set.
-- T13
-
-### 2. Property
-- the return value is a negative integer if both inputs are negative
-- this holds for all negative input values
-- T14
-
-### 3. Property
-- the return value is always the addition of the two values
-- T13/T14
-
-
-# UniquePathsGrid
-
-### 1. Understand the requirement, inputs, and outputs
-
-The class UniquePaths contains a single function called uniquePaths which recursively finds the number of paths which exists to get from a grid from the top left to the bottom right. The function takes two integers as input which define the size of the grid and returns the number of unique paths as the output.
-### 2. Explore the program
-
-Wrote some simple print statements and some method calls to see how to program runs
-
-### 3. Explore possible inputs and outputs, and identify partitions
-
-input parameters:
-- `integer m & n`
-  - are both strictly positive
-  - are both not null
-
-output parameters:
-- `integer dp`
-  - is a strictly positive value
-  - is not null
-
-### 4. Analyze the boundaries
-- `integer a & b`
-  - 1 (if either of the two values the result will always be 1)
-  - 2 (if both go over 2 the result is stricly higher than 1)
-
-### 5. Devise test cases
-- `integer a` is 1
-  - T1: `integer b` is 1
-  - T2: `integer b` is 3
-- `integer a` is 2
-  - T3: `integer b` is 1
-  - T4: `integer b` is 5
-- `integer a` is 4
-  - T5: `integer b` is 1
-  - T6: `integer b` is 4
-
-### 6. Automate the test cases
-
-- have a look at [tests](UniquePathsGrid/src/test/java/zest/uniquePathsTest.java)
-
-### 7. Augment the test suite with creativity and experience
-- T7: use some high numbers to verify calculation is actually correct
-
-## Structural testing
-
-- Line coverage 100%
-- Branch coverage 100%
-- Mutants killed 14/14
-- Note the coverage measure is before the invariantchecks
-
-## Designing contracts
-
-### Pre-conditions
-
-- `integer m & n` both need to be positive integers strictly greater than 0
-
-### Post-conditions
-
-- the returned value will always be positive and strictly greater than 0
-- if either of the inputs is 1 the output will be 1 aswell
-
-### Invariants
-- once instantiated the grid size never changes
-- values in the grid are either the sum of the values above and to the left or 0
-
-## Testing contracts
-
-### Pre-conditions
-
-- Soft return, the method will return 0 if the inputs are below 1
-- T8: input below 1
-
-### Post-conditions
-
-- T1,T2,T5 prove the point regarding one value being 1
-- The other tests show that the return value is always positive
-
-### Invariants
-
-- since the variant is enforced with assert statements all the tests would fail if the condition would not hold
-- a failing test can't be provided since the invariant is always true
-
-## Property-based testing
-### 1. Property:
-- the value to be returned is 1
-this property holds true as long as at least one of the two input values is 1
-- T9
-
-### 2. Property
-- the value to be returned is strictly positive
-this property holds for all input values
-- T10
-
-### 3. Property
-- the value to be returned is 0
-this is by design, as soon as either of the inputs goes below 1
-
-
-
-
 # MergeKSortedLists
 
 ## Specification-based testing
@@ -791,3 +579,214 @@ balanced BST.
   For all invalid instances of `nums` (Violating the constraints from `Property 1`) the program must throw an
   error. -> `T15` `invalidInputNotSorted`, `T16` `invalidInputDuplicates`
 `T17` `invalidInputTooManyElements`
+
+
+
+# SumOfTwoIntegers
+
+### 1. Understand the requirement, inputs, and outputs
+
+The class SumOfTwoIntegers contains one method called getSum which takes two integers as input and will give the result of adding the two as output.
+
+### 2. Explore the program
+
+Wrote some simple print statements and some method calls to see how to program runs
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+
+- `integer a & b`
+  - can both be positive
+  - either one can be 0
+  - one can be negative
+  - both can be negative
+  - Note: it is assumed the integers are in the 32 bit range
+
+Output parameters:
+
+- `integer c`
+  - can be positive
+  - can be 0
+  - can be negative
+  - can need less bits than `a or b`
+  - can use more bits than `a or b`
+
+### 4. Analyze the boundaries
+- `integer a & b`
+  - 0 => 1, 0, -1
+  - null => null
+
+### 5. Devise test cases
+
+- `integer a` is null
+  - `integer b` is positive (nothing specified how to handle this in readme => will not be covered)
+- `integer a` is positive
+  - T1: `integer b` is positive and has more bits than a
+  - T2: `integer b` is positive and has less bits than a
+  - T3: `integer b` is 0
+  - T4: `integer b` is negative and has more bits than a
+  - T5: `integer b` is negative and has less bits than a
+- `integer a` is 0
+  - T6: `integer b` is 0
+- `integer a` is negative
+  - T7: `integer b` is positive
+  - T8: `integer b` is negative and has more bits than a
+  - T9: `integer b` is negative and has less bits than a
+
+
+### 6. Automate the test cases
+
+have a look at [Tests](SumofTwoIntegers/src/test/java/zest/SumOfTwoIntegersTest.java)
+
+### 7. Augment the test suite with creativity and experience
+
+- T10: since the adding is done in binary we derive another test case where `integer a` is 0 and `integer b` has some negative value since the order could make a difference for the result
+
+## Structural testing
+
+- line coverage of 100%
+- branch coverage of 100%
+- mutation tests 7/7 mutants killed
+
+## Designing contracts
+
+### Pre-conditions
+
+- Inputs `a & b` are both integers and not null (since the type is int which can't be null this is already satisfied with Integer instead of int it could be done explicit)
+
+### Post-conditions
+
+- The output `c` is an integer which is not null (also int type, therefore same logic as above)
+
+### Invariants
+
+- None which are useful
+
+## Testing contracts
+
+### Pre-conditions
+
+- T11: Check that a null value raises NullPointerException
+
+### Post-conditions
+
+- T12: If no null values are provided the result gives the correct integer
+
+### Invariants
+
+- Intentionally empty
+
+## Property-based testing
+### 1. Property:
+- the return value is a positive integer if both inputs are positive
+- Note here that the tests fail and give an error if we check this since if one of the values is the highest possible integer the program will not be able to handle it, probably since the underlying system uses 32 bit integers and therefore if we add to this number it behaves not as wanted, but becomes negative. Therefore for the tests to pass a maximum of 5000 is set.
+- T13
+
+### 2. Property
+- the return value is a negative integer if both inputs are negative
+- this holds for all negative input values
+- T14
+
+### 3. Property
+- the return value is always the addition of the two values
+- T13/T14
+
+
+# UniquePathsGrid
+
+### 1. Understand the requirement, inputs, and outputs
+
+The class UniquePaths contains a single function called uniquePaths which recursively finds the number of paths which exists to get from a grid from the top left to the bottom right. The function takes two integers as input which define the size of the grid and returns the number of unique paths as the output.
+### 2. Explore the program
+
+Wrote some simple print statements and some method calls to see how to program runs
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+input parameters:
+- `integer m & n`
+  - are both strictly positive
+  - are both not null
+
+output parameters:
+- `integer dp`
+  - is a strictly positive value
+  - is not null
+
+### 4. Analyze the boundaries
+- `integer a & b`
+  - 1 (if either of the two values the result will always be 1)
+  - 2 (if both go over 2 the result is stricly higher than 1)
+
+### 5. Devise test cases
+- `integer a` is 1
+  - T1: `integer b` is 1
+  - T2: `integer b` is 3
+- `integer a` is 2
+  - T3: `integer b` is 1
+  - T4: `integer b` is 5
+- `integer a` is 4
+  - T5: `integer b` is 1
+  - T6: `integer b` is 4
+
+### 6. Automate the test cases
+
+- have a look at [tests](UniquePathsGrid/src/test/java/zest/uniquePathsTest.java)
+
+### 7. Augment the test suite with creativity and experience
+- T7: use some high numbers to verify calculation is actually correct
+
+## Structural testing
+
+- Line coverage 100%
+- Branch coverage 100%
+- Mutants killed 14/14
+- Note the coverage measure is before the invariantchecks
+
+## Designing contracts
+
+### Pre-conditions
+
+- `integer m & n` both need to be positive integers strictly greater than 0
+
+### Post-conditions
+
+- the returned value will always be positive and strictly greater than 0
+- if either of the inputs is 1 the output will be 1 aswell
+
+### Invariants
+- once instantiated the grid size never changes
+- values in the grid are either the sum of the values above and to the left or 0
+
+## Testing contracts
+
+### Pre-conditions
+
+- Soft return, the method will return 0 if the inputs are below 1
+- T8: input below 1
+
+### Post-conditions
+
+- T1,T2,T5 prove the point regarding one value being 1
+- The other tests show that the return value is always positive
+
+### Invariants
+
+- since the variant is enforced with assert statements all the tests would fail if the condition would not hold
+- a failing test can't be provided since the invariant is always true
+
+## Property-based testing
+### 1. Property:
+- the value to be returned is 1
+this property holds true as long as at least one of the two input values is 1
+- T9
+
+### 2. Property
+- the value to be returned is strictly positive
+this property holds for all input values
+- T10
+
+### 3. Property
+- the value to be returned is 0
+this is by design, as soon as either of the inputs goes below 1
