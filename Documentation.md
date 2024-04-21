@@ -552,3 +552,242 @@ this property holds for all input values
 ### 3. Property
 - the value to be returned is 0
 this is by design, as soon as either of the inputs goes below 1
+
+
+
+
+# MergeKSortedLists
+
+## Specification-based testing
+### 1. Understand the requirement, inputs, and outputs
+
+Method: `mergeKLists(ListNode[] lists)`
+
+merges k sorted in ascending order linked lists into one linked list
+- `lists`: list or ListNodes
+
+return one sorted, in ascending order, linked list containing all the nodes from lists
+
+### 2. Explore the program
+
+Wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+
+- `lists`:
+  - Can be null
+  - Can be empty (length 0)
+  - Can have length >= 1
+  - the values of ListNodes in `lists` have to be in the range [-10000, 10000]
+  - total amount of ListNodes all linked lists is in range  [0, 10000]
+  - The lists in `lists` have to be sorted in ascending order
+
+- no combination of input parameters possible, as only 1 input parameter exists
+
+Output parameters:
+
+- the head of the final linked list
+- the final linked list is sorted in ascending order
+
+### 4. Analyze the boundaries
+- `lists` having length 1
+- Amount of ListNodes is exactly 10000
+- ListNode.value = 10000
+- ListNode.value = -10000
+
+### 5. Devise test cases
+- T1: `lists` is null 
+- T2: `lists` has length = 0
+- T3: `lists` has length 1 and constraints are satisfied
+- T4: `lists` has length 1 and linked list is not sorted in ascending order
+- T5: `lists` has length > 1 and constraints are satisfied
+- T6: `lists` has length > 1 and a value of a ListNode is > 10000
+- T7: `lists` has length > 1 and value of a ListNode is < -10000
+- T8: `lists` has length > 1 and amount of ListNodes is 10000
+- T9: `lists` has length > 1 and amount of ListNodes is greater than 10000
+- T10: `lists` has length = 1 and amount of ListNodes is 10000
+- T11: `lists` has length = 1 and amount of ListNodes is greater than 10000
+- T12: `lists` has length > 1 and contains a list that is not sorted in ascending order
+
+### 6. Automate the test cases
+
+see: `MergeKSortedListTest.java`
+
+### 7. Augment the test suite with creativity and experience
+
+- T13: there exists multiple nodes with the same values in `lists` 
+
+## Structural testing
+
+- line coverage: 14/14 lines covered 
+
+## Designing contracts
+
+### Pre-conditions
+
+- Number of nodes in all the linked lists in `lists` can be at most 10000 
+- -10000 <= node.val <= 10000 for all ListNodes 
+- length of `lists` >= 1 -> remove line `if (lists == null || lists.length == 0) return null;` and replace with 
+` assert lists.length >= 1  : "number of linkes lists has to be a positive integer";`
+- all the linked lists in `lists` need to be sorted in ascending order
+
+### Post-conditions
+
+- the amount of nodes in the merged linked list needs to be the same as the initial amount of nodes
+- returned linked list needs to be sorted in ascending order
+
+
+## Testing contracts
+
+### Pre-conditions
+
+- Number of nodes in all the linked lists in `lists` can be at most 10000 -> `T9`, `T11`
+- -10000 <= node.val <= 10000 for all ListNodes -> `T6`, `T7`
+- length of `lists` >= 1 -> `T2` needs to be changed to check for thrown assertion error, `T1`
+- all the linked lists in `lists` need to be sorted in ascending order -> `T4` and `T12`
+
+### Post-conditions
+
+- the amount of nodes in the merged linked list needs to be the same as the initial amount of nodes
+-> create `T14` `finalAmountOfNodesSameAsInitial`
+- returned linked list needs to be sorted in ascending order -> `T3` `T5`
+
+-> Resulting Line Coverage: 48/48 lines
+
+## Property-based testing
+
+- `Property 1`: Valid Input:
+Given a list `lists` of `k`  sorted (in ascending order) linked lists, in which all nodes combined are in the range [0, 10000]
+and the values of the nodes is in the range [-10000, 10000] and where with `k` >= 1, the program should
+merge all the nodes of the lists in `lists` into a single sorted (in ascending order) linked list and return it.
+-> `T15` `validInput`
+
+- `Property 2`: Invalid Input:
+For all invalid instances of `lists` (Violating the constraints from `Property 1`) the program must throw an
+error. -> `T16` `invalidInput`
+
+
+
+
+# SortedArray2BST
+
+## Specification-based testing
+### 1. Understand the requirement, inputs, and outputs
+
+Method: `sortedArrayToBST(int[] nums)` 
+
+Given an array `nums` where elements are sorted in ascending order, `sortedArrayToBST` should `nums` to a height-balanced 
+binary search tree (BST), where the depth of the two subtrees of every node never differs by more than 1. `sortedArrayToBST`
+should return the obtained BST.
+
+### 2. Explore the program
+
+Wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+
+- `nums`:
+  - Is null
+  - Is empty (length 0)
+  - Has length >= 1
+  - Has length > 10'000
+  - Elements of `nums` are sorted in ascending order
+  - Elements of `nums` are not sorted in ascending order
+  - `nums` contains only unique integers
+  - `nums` contains duplicates
+  - `nums` contains only integers < 0
+  - `nums` contains only integers > 0
+  - `nums` contains integers > 0 as well as <= 0
+
+Output parameters:
+
+- the root, a `TreeNode`, of the BST if `nums` has length >= 1
+- null if `nums` is empty
+
+### 4. Analyze the boundaries
+
+- `nums` has length 1
+- `nums` has length 10'000
+
+### 5. Devise test cases
+- T1: `nums` is null
+- T2: `nums` has length = 0
+- T3: `nums` has length 1 
+- T4: `nums` has length >= 1 and <= 10'000 and is sorted in ascending order and contains only unique integers <= 0 and
+as well as > 0
+- T5: `nums` has length >= 1 and <= 10'000 and is not sorted in ascending order
+- T6: `nums` has length >= 1 and <= 10'000 and contains duplicates
+- T7: `nums` has length > 10'000
+- T8: `nums` has length 10'000, is sorted in ascending order and has no duplicates
+- T9: `nums` has length 10'000 and is not sorted in ascending order
+- T10: `nums` has length 10'000 and contains duplicates
+- T11: `nums` has length >= 1 and <= 10'000 and contains only negative integers
+- T12: `nums` has length >= 1 and <= 10'000 and contains only positive integers
+
+### 6. Automate the test cases
+
+see: `SortedArrayToBSTTest.java`
+
+### 7. Augment the test suite with creativity and experience
+
+
+## Structural testing
+
+- `T10`, `T9`, `T7`, `T6`, and `T5` -> fail -> test related to pre- and post-conditions
+
+## Designing contracts
+
+### Pre-conditions
+
+- `nums` only contains unique integers
+- `nums` is sorted in ascending order
+- length of `nums` is in range [0, 10'000] 
+
+### Post-conditions
+
+- the return value `node` needs to be the head of a height balanced BST
+- the BST needs to contain the same amount of nodes as `nums`
+
+
+### Invariants
+
+- `nums` cannot change throughout the whole lifetime of the `sortedArrayToBST` method.
+
+## Testing contracts
+
+### Pre-conditions
+
+- `nums` only contains unique integers -> `T6`, `T10`
+- `nums` is sorted in ascending order -> `T5`, `T9`
+- length of `nums` is in range [0, 10'000] -> `T7`
+
+
+### Post-conditions
+
+-> `T3`, `T4`, `T8`, `T11`, `T12`
+
+### Invariants
+
+- Assign `nums` after precondition check to class variable `nums` and compare the
+class variable `nums` to local variable `nums` after each recursive call of constructBSTRecursive.
+
+Overall:
+-> Resulting Line Coverage: 54/55 lines
+
+-> can write `T13` that validates that `validBST` returns false in case of a not height balance BST
+-> line coverage: 55/55 lines
+## Property-based testing
+
+- `Property 1`: Valid Input:
+  Given a sorted (in ascending order) array `nums` with no duplicate, and at most 10'000 values `sortedArrayToBST` should return a height
+balanced BST.
+  -> `T14` `validInput`
+
+- `Property 2`: Invalid Input:
+  For all invalid instances of `nums` (Violating the constraints from `Property 1`) the program must throw an
+  error. -> `T15` `invalidInputNotSorted`, `T16` `invalidInputDuplicates`
+`T17` `invalidInputTooManyElements`
