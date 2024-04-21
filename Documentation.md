@@ -654,14 +654,16 @@ have a look at [Tests](SumofTwoIntegers/src/test/java/zest/SumOfTwoIntegersTest.
 ### Pre-conditions
 
 - Inputs `a & b` are both integers and not null (since the type is int which can't be null this is already satisfied with Integer instead of int it could be done explicit)
+- Inputs are in the 32 bit range
 
 ### Post-conditions
 
-- The output `c` is an integer which is not null (also int type, therefore same logic as above)
+- The output is an integer which is not null (also int type, therefore same logic as above)
+- The output is in the 32 bit range
 
 ### Invariants
 
-- None which are useful
+- None which makes sense, no need to search for an invariant just to have one
 
 ## Testing contracts
 
@@ -768,6 +770,7 @@ output parameters:
 
 ### Post-conditions
 
+- Arithmetic exception if the post conditions are violated
 - T1,T2,T5 prove the point regarding one value being 1
 - The other tests show that the return value is always positive
 
