@@ -30,6 +30,14 @@ public class UniquePaths {
 
         assert gridGreaterCheck(dp);
 
+        if(dp[m-1][n-1] < 0){
+            throw new ArithmeticException();
+        }
+
+        if((m == 1 || n == 1) && dp[m-1][n-1] != 1){
+            throw new ArithmeticException();
+        }
+
         return dp[m - 1][n - 1]; // The bottom-right cell contains the total number of unique paths
     }
 
