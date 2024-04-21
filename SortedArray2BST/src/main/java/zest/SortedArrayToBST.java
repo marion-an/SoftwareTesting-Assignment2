@@ -63,11 +63,18 @@ public class SortedArrayToBST {
         return 1 + Math.max(height(node.left), height(node.right));
     }
 
+    private void fillNums(int[] nums){
+        for(int i = 0; i<nums.length; i++){
+            this.nums[i] = nums[i];
+        }
+    }
+
     public zest.TreeNode sortedArrayToBST(int[] nums) {
         assert nums.length <= 10000;
         assert containsNoDuplicates(nums);
         assert isSorted(nums);
-        this.nums = nums;
+        this.nums = new int[nums.length];
+        this.fillNums(nums);
         TreeNode head = constructBSTRecursive(nums, 0, nums.length - 1);
         assert count(head) == nums.length;
         assert validBST(head);
