@@ -1,10 +1,20 @@
 package zest;
 
 public class ClimbingStairs {
-    public long climbStairs(int n) {
+    public static long climbStairs(int n) {
+
+        if (n < 0) {
+            throw new RuntimeException("Integer cannot be negative.");
+        }
+
+        if (n > 45) {
+            throw new RuntimeException("Integer too big.");
+        }
+
         if (n <= 2) {
             return n;
         }
+
         long oneStepBefore = 2;
         long twoStepsBefore = 1;
         long allWays = 0;
@@ -17,3 +27,4 @@ public class ClimbingStairs {
         return allWays;
     }
 }
+
