@@ -455,7 +455,7 @@ have a look at [Tests](SumofTwoIntegers/src/test/java/zest/SumOfTwoIntegersTest.
 - T13/T14
 
 
-# SumOfTwoIntegers
+# UniquePathsGrid
 
 ### 1. Understand the requirement, inputs, and outputs
 
