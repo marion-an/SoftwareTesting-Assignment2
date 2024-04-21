@@ -401,7 +401,8 @@ Output parameters:
 
 ### 6. Automate the test cases
 
-see: `MergeKSortedListTest.java`
+see: [MergeKSortedListTest.java](MergeKSortedLists/src/test/java/zest/MergeKSortedListsTest.java)
+
 
 ### 7. Augment the test suite with creativity and experience
 
@@ -518,7 +519,8 @@ as well as > 0
 
 ### 6. Automate the test cases
 
-see: `SortedArrayToBSTTest.java`
+see: [SortedArrayToBSTTest.java](SortedArray2BST/src/test/java/zest/SortedArrayToBSTTest.java)
+
 
 ### 7. Augment the test suite with creativity and experience
 
