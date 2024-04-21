@@ -715,24 +715,24 @@ output parameters:
   - is not null
 
 ### 4. Analyze the boundaries
-- `integer a & b`
+- `integer m & n`
   - 1 (if either of the two values the result will always be 1)
   - 2 (if both go over 2 the result is stricly higher than 1)
 
 ### 5. Devise test cases
-- `integer a` is 1
-  - T1: `integer b` is 1
-  - T2: `integer b` is 3
-- `integer a` is 2
-  - T3: `integer b` is 1
-  - T4: `integer b` is 5
-- `integer a` is 4
-  - T5: `integer b` is 1
-  - T6: `integer b` is 4
+- `integer m` is 1
+  - T1: `integer n` is 1
+  - T2: `integer n` is 3
+- `integer m` is 2
+  - T3: `integer n` is 1
+  - T4: `integer n` is 5
+- `integer m` is 4
+  - T5: `integer n` is 1
+  - T6: `integer n` is 4
 
 ### 6. Automate the test cases
 
-- have a look at [tests](UniquePathsGrid/src/test/java/zest/uniquePathsTest.java)
+- have a look at [tests](UniquePathsGrid/src/test/java/zest/UniquePathsTest.java)
 
 ### 7. Augment the test suite with creativity and experience
 - T7: use some high numbers to verify calculation is actually correct
