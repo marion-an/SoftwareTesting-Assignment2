@@ -116,6 +116,179 @@ see: [ClimbStairsTest.java](ClimbingStairs/src/main/java/zest/ClimbingStairs.jav
   This property has to hold true for every input.
 
 
+# CourseSchedule
+
+## Specification-based testing
+
+According to the book chapter 3.2 structural testing complements specification-based testing and specification-based
+testing is done prior to structural testing. Therefore, we have decided to specification-based testing as well.
+
+### 0. Notes and comments
+
+making the method static (to test it)
+-> public static boolean canFinish(int numCourses, int[][] prerequisites)
+-> private static boolean hasCycle(List<List<Integer>> graph, int current, boolean[] visited, boolean[] onPath)
+
+testing the input to check if it's valid or not
+->if (prerequisite.length != 2) {
+->if (numCourses <= 0) {
+->else if (prerequisite[0] < 0 || prerequisite[1] < 0 || prerequisite[0] >= numCourses || prerequisite[1] >= numCourses) {
+
+
+### 1. Understand the requirement, inputs, and outputs
+
+Method: `canFinish(int numCourses, int[][] prerequisites)`
+
+given the number of course and the predcondition to participate in some of those courses, we have to determine if it is possible to visit all courses legally (while avoiding circular prerequisite)
+
+input:
+- `numCourses`: positive integer
+- `prerequisites`: a list of edge pairs (int) in a directed graph
+
+output:
+we return a boolean, checking if it is possible or not and valid
+
+### 2. Explore the program
+
+We wrote some tests to see how the program behaves
+
+### 3. Explore possible inputs and outputs, and identify partitions
+
+Input parameters:
+
+- `numCourses`: positive integer
+- `numCourses`: non positive integer
+
+- `prerequisites`: empty list
+- `prerequisites`: 1 element in list
+- `prerequisites`: many element in list
+
+variant:
+
+- `prerequisites`: valid, no loops
+- `prerequisites`: valid, duplicate element
+
+- `prerequisites`: invalid, self prerequesite
+- `prerequisites`: invalid, prerequesite cycle
+- `prerequisites`: invalid, invalid integers in array
+- `prerequisites`: invalid, invalid format in array
+
+
+
+Input combinations:
+
+- `numCourses`: positive integer and `prerequisites`: empty list
+- `numCourses`: positive integer and `prerequisites`: 1 element
+- `numCourses`: positive integer and `prerequisites`: 1 element (invalid, int in prerequisites higher than numCourses)
+- `numCourses`: positive integer and `prerequisites`: many element
+
+with valid or invalid prerequisites
+
+Output parameters:
+
+- return a boolean
+
+### 4. Analyze the boundaries
+
+- `numCourses`: big integer
+- `prerequisites`: big element in list
+
+(zero integer/element tested previously)
+
+
+### 5. Devise test cases
+
+- T1: `numCourses` = 0
+- T2: `prerequisites` is in invalid format
+- T3: `prerequisites` contains negative number
+- T4: `prerequisites` contains bigger integer than `numCourses`
+- T5: `prerequisites` contains a self-prerequesite
+- T6: `prerequisites` contains a cycle prerequesite
+- T7: `prerequisites` is empty
+- T8: `prerequisites` has a duplicate element
+- T9: `prerequisites` has 1 element (valid)
+- T10: `prerequisites` has many element (valid)
+- T11: `prerequisites` has many element (invalid)
+- T12: `numCourses` = 10000000
+- T13: `prerequisites` has 1000 element
+- T14: `prerequisites` has 1000 element (with Cycle)
+
+
+### 6. Automate the test cases
+
+see: [CourseScheduleTest.java](CourseSchedule/src/main/java/zest/CourseSchedule.java)
+
+
+### 7. Augment the test suite with creativity and experience
+
+- T15: `prerequisites` has many prerequisite for one course
+- T16: `prerequisites` has one prerequisite for many course
+
+
+## Structural testing
+
+- line coverage: 100% (98% overall, because the method is static. The class is never instantiated)
+
+## Designing contracts
+
+### Pre-conditions
+
+- `numCourse` should be a positive integer
+- `prerequisites` should be a list of pairs of integer
+- `prerequisites` should only refer to valid courses
+- `prerequisites` shouldn't have self-prerequisite or cycle of prerequisite
+
+### Post-conditions
+
+- the returned value should be a boolean, `true` if it is possible to finish all courses without encountering any prerequisite cycles, false otherwise
+
+
+### Invariants
+
+- DFS algorithm correctly detects cycles in the directed graph represented by the prerequisites.
+
+## Testing contracts
+
+### Pre-conditions
+
+- `numCourse` should be a positive integer
+  invalid for T1
+
+
+- `prerequisites` should be a list of pairs of integer
+  invalid for T2
+
+
+- `prerequisites` should only refer to valid courses
+  invalid for T3
+
+
+- `prerequisites` shouldn't have self-prerequisite or cycle of prerequisite
+  invalid for T5 and T6
+
+T10 should be valid for all of them
+
+### Post-conditions
+
+- the returned value should be a boolean, `true` if it is possible to finish all courses without encountering any prerequisite cycles, false otherwise
+  T10 for True
+  T11 for False
+
+### Invariants
+
+- DFS algorithm correctly detects cycles in the directed graph represented by the prerequisites.
+  valid for T17
+
+## Property-based testing
+### 1. Property:
+
+- the output is correctly updated each floor ascendingly (we output the i_th distinct ways to climb i_th stairs)
+  This property has to hold true for every input.
+
+We create an acyclic graph, we create random edges such that the first valus is always smaller than the second value
+
+
+
 # FindDuplicate
 
 ## Specification-based testing

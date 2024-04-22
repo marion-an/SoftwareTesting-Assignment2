@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/ClimbingStairs/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ClimbingStairs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CourseSchedule/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CourseSchedule/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FindDuplicate/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/FindDuplicate/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/LongestIncreasingSubsequence/src/main/java" charset="UTF-8" />
@@ -11,5 +13,9 @@
     <file url="file://$PROJECT_DIR$/MergeKSortedLists/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SortedArray2BST/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/SortedArray2BST/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SumofTwoIntegers/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/SumofTwoIntegers/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UniquePathsGrid/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/UniquePathsGrid/src/main/resources" charset="UTF-8" />
   </component>
 </project>

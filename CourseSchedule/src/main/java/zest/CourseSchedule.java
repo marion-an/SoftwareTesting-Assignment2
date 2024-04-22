@@ -4,8 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CourseSchedule {
-    public boolean canFinish(int numCourses, int[][] prerequisites) {
+    public static boolean canFinish(int numCourses, int[][] prerequisites) {
 
+        if (numCourses <= 0) {
+            throw new RuntimeException("Invalid numCourses.");
+        }
+
+        for (int[] prerequisite : prerequisites) {
+            if (prerequisite.length != 2) {
+                throw new RuntimeException("Invalid prerequisite.");
+            }
+
+            else if (prerequisite[0] < 0 || prerequisite[1] < 0 || prerequisite[0] >= numCourses || prerequisite[1] >= numCourses) {
+                throw new RuntimeException("Invalid prerequisite.");
+            }
+        }
 
         // Create a graph from prerequisites
         List<List<Integer>> graph = new ArrayList<>();
@@ -27,7 +40,7 @@ public class CourseSchedule {
         return true; // No cycle detected
     }
 
-    private boolean hasCycle(List<List<Integer>> graph, int current, boolean[] visited, boolean[] onPath) {
+    private static boolean hasCycle(List<List<Integer>> graph, int current, boolean[] visited, boolean[] onPath) {
         if (onPath[current]) return true; // Cycle detected
         if (visited[current]) return false; // Already visited
 

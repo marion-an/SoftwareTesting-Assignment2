@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="longestIncreasingSubsequence-test" />
-        <module name="CourseSchedule" />
         <module name="ClimbingStairs" />
         <module name="SortedArray2BST-old" />
         <module name="mergeKSortedLists-test" />
-        <module name="SumofTwoIntegers" />
         <module name="UniquePathsGrid" />
         <module name="MergeKSortedLists" />
         <module name="sortedArray2BST-test" />
         <module name="SortedArray2BST" />
-        <module name="findDuplicate-test" />
         <module name="LongestIncreasingSubsequence" />
+        <module name="longestIncreasingSubsequence-test" />
+        <module name="CourseSchedule" />
+        <module name="SumofTwoIntegers" />
+        <module name="ClimbingStairs-test" />
+        <module name="findDuplicate-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
